@@ -44,7 +44,9 @@ def circleDraw():
             pyautogui.dragTo(X+20*math.sin(math.radians(i)),Y+20*math.cos(math.radians(i)))
     pyautogui.dragTo(X,Y)
 def main():
-    circleDraw()
+    #circleDraw()
+
+    moveCursor()
 
 if __name__ == "__main__":
     main()
