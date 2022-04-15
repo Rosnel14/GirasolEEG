@@ -1,2 +1,3 @@
 # GirasolEEG
-Repository for GirasolEEG project
+
+EEG signals to control mouse cursor on RPi 
