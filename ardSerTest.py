@@ -1,7 +1,17 @@
 import serial
-ser = serial.Serial('/dev/ttyACM0',9600)
+import time
+#for RPi /dev/ttyACM0 for serial path
+#for MacOS /dev/cu.usbmodem00001
 
-while True:
+ser = serial.Serial('/dev/cu.usbmodem00001',9600)
+
+duration = 5
+
+while (True):
     read_serial=ser.readline()
-    print(read_serial)
 
+    #using the byte modifier works!
+    mylist = read_serial.split(b",")
+
+    #here I'm getting used to byte type objects
+    print(mylist[0] > mylist[1])

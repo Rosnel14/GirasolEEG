@@ -16,14 +16,16 @@ void loop() {
     if (brain.update()) {
         //Serial.println(brain.readErrors());
         //Serial.println(brain.readCSV());
-        //Serial.println(brain.readAttention()); 
+        //Serial.println(brain.readAttention());
         //Serial.println(brain.readSignalQuality());
-        //Serial.println(brain.readSignalQuality() + ',' + brain.readAttention());
-        Serial.println(brain.readLowBeta()); 
-        
+        //Serial.println(brain.readSignalQuality());
+        //Serial.println(brain.readLowBeta());
 
+        String signalQuality = String(brain.readSignalQuality());
+        String attention = String(brain.readAttention());
+        Serial.println(signalQuality + "," + attention);
     }
 
-  //print out attention greater than or equal to 20 
-  
+  //print out attention greater than or equal to 20
+
 }
