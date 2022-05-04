@@ -20,7 +20,13 @@ delay = 5
 
 
 def main():
-    print(serialParser.getSignalQuality(5))
+    #testing each method
+
+    #works - gets signal quality
+    #print(serialParser.getSignalQuality(delay))
+
+    # works - gets attention values
+    print(serialParser.getAttention(delay))
 
 
 
