@@ -14,4 +14,4 @@ while (True):
     mylist = read_serial.split(b",")
 
     #here I'm getting used to byte type objects
-    print(mylist[0] > mylist[1])
+    print(mylist)

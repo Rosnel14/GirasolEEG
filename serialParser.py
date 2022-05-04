@@ -26,5 +26,23 @@ def getAttention(duration):
 
 
 
-#returns concentration value
-def getConcentration():
+#returns signal quality value
+#a null object is returned when the signal quality drops
+#a byte like object is returned if successful
+#works as of May 4th !
+def getSignalQuality(duration):
+
+
+    print("entered method")
+    startTime = time.time()
+    while(time.time() < startTime + duration):
+        print("entered while loop")
+        read_serial = ser.readline()
+        print("read serial port ")
+        #myByteList[0] = read_serial.split(b",")
+       # print("made list")
+
+    myByteList = read_serial.split(b",")
+    #returns byte object for signal quality
+    print("about to finish method and return")
+    return myByteList[0]
