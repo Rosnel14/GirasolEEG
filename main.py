@@ -3,9 +3,10 @@
 import serialParser
 import time
 import pyautogui
+import ast
 
 #threshold to say that user is concentrating
-attn_Const = 50
+attn_Const = b'50'
 
 #cursor constants
 mouse_duration =1
@@ -18,13 +19,22 @@ mouse_y_duration = 100
 
 delay = 5
 
-#this will move the cursor to the light
+
+def mouseXmovement(duration):
+    if(serialParser.getAttention(duration) > attn_Const):
+        moveRight(duration)
+    elif (serialParser.getAttention(duration) < attn_Const):
+        moveLeft(duration)
+
+
+#this will move the cursor to the left
+#works as of May 6th
 def moveLeft(duration):
     initVal = serialParser.getAttention(duration)
     startTime = time.time()
     #as long as the current value is constantly decreasing
     while(time.time() < startTime + duration ):
-        while(serialParser.getAttention(duration) >= initVal):
+        while(serialParser.getAttention(duration) <= initVal):
             pyautogui.move(-mouse_x_duration,0,mouse_duration)
 
 #this will move the cursor to the right
@@ -39,6 +49,7 @@ def moveRight(duration):
 
 
 def main():
+
     #testing each method
 
     #works - gets signal quality
@@ -50,6 +61,11 @@ def main():
     #moving right
     #moveRight(delay)
 
+    #moving left
+    #moveLeft(delay)
+
+    #xmovement
+    mouseXmovement(delay)
 
 #entry point for program
 if __name__ == "__main__":
