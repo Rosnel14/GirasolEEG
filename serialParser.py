@@ -12,12 +12,6 @@ ser = serial.Serial('/dev/cu.usbmodem00001',9600)
 #signal strength, attention, meditation, delta, theta, low alpha, high alpha, low beta, high beta, low gamma, high gamma
 
 
-#seperates string from Arduino
-
-
-
-
-
 
 
 #returns signal quality value
@@ -44,10 +38,9 @@ def getSignalQuality(duration):
 #returns attention value
 #for a duration in seconds(int)
 #works as of May 4th
-def getAttention(duration):
+def getAttention(duration, read_serial=None):
 
     startTime = time.time()
-
     #this is to ensure that we have a healthy signal
     # 0 is full connection, 200 is no connection to headset
     # recall that these are byte like objects as well
