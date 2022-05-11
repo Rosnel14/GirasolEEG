@@ -21,11 +21,13 @@ void loop() {
         //Serial.println(brain.readSignalQuality());
         //Serial.println(brain.readLowBeta());
 
+      //For general use
         String signalQuality = String(brain.readSignalQuality());
         String attention = String(brain.readAttention());
-        Serial.println(signalQuality + "," + attention);
+        String delta = String(brain.readDelta());
+        Serial.println(signalQuality + "," + attention + "," + delta);
     }
 
-  //print out attention greater than or equal to 20
+
 
 }

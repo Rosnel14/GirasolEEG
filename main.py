@@ -8,6 +8,8 @@ import ast
 #threshold to say that user is concentrating
 attn_Const = b'50'
 
+#threshold for 'limb movement'
+delta_const = b'100000'
 #cursor constants
 mouse_duration =1
 
@@ -17,7 +19,8 @@ mouse_y_duration = 100
 
 #packet delay
 
-delay = 5
+delay = 2
+
 
 
 def mouseXmovement(duration):
@@ -48,6 +51,7 @@ def moveRight(duration):
             pyautogui.move(mouse_x_duration,0,mouse_duration)
 
 
+
 def main():
 
     #testing each method
@@ -65,7 +69,12 @@ def main():
     #moveLeft(delay)
 
     #xmovement
-    mouseXmovement(delay)
+    #mouseXmovement(delay)
+
+    #yMovement
+
+    #testing heap method
+    #serialParser.getSignalQualityHeap(delay)
 
 #entry point for program
 if __name__ == "__main__":

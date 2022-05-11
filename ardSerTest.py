@@ -7,6 +7,8 @@ ser = serial.Serial('/dev/cu.usbmodem00001',9600)
 
 duration = 5
 
+
+
 while (True):
     read_serial=ser.readline()
 
