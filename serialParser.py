@@ -61,7 +61,9 @@ def getGamma(duration, read_serial=None):
     # 0 is full connection, 200 is no connection to headset
     # recall that these are byte like objects as well
 
-    while (time.time() < startTime + duration and getSignalQuality(duration) == b'0'):
+    #remember to check signal quality as in other methods, I removed
+    #this condition b/c I had to work around it
+    while (time.time() < startTime + duration ):
         read_serial = ser.readline()
 
     myByteList = read_serial.split(b",")

@@ -93,14 +93,34 @@ def standardOp(duration):
         print("You have interuptted Brain Interface Device")
         print("Restart Script")
 
+#NOTE: This is a fallback option
+# in an ideal world, use the standardOp method only
+# I made this method to serve as a workaround b/c
+# the signal quality of my headset had deteriorated
+def workAroundOp(duration):
+    # I'm trying to make a failsafe to leave this script in case it goes bad
+    try:
+        # I have no better loop condition
+        while (True):
+            failsafeXmovement(duration)
 
+    except KeyboardInterrupt:
+        print("You have interuptted Brain Interface Device")
+        print("Restart Script")
 
+def failsafeXmovement(duration):
+    if(serialParser.getGamma(duration) >= gamma_const):
+        print('move right')
+        pyautogui.move(mouse_x_duration,0,mouse_duration)
+    if (serialParser.getGamma(duration) <= gamma_const):
+        print('move left')
+        pyautogui.move(-mouse_x_duration,0,mouse_duration)
 #method that is actually run
 def main():
 
 
     #main operation
-    standardOp(delay)
+    #standardOp(delay)
 
 
     #testing each method
@@ -119,6 +139,9 @@ def main():
 
     #xmovement
     #mouseXmovement(delay)
+
+    #makeshift method b/c signal quality bad
+     workAroundOp(delay)
 
     #yMovement
     #mouseYmovement(delay)
